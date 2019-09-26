@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld/>
+    <component :is="currentModal" :data="modalData"/>
   </div>
 </template>
 
@@ -12,7 +13,28 @@ export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  data() {
+    return {
+      currentModal: null,
+      modalData: {},
+    }
+  },
+  mounted() {
+    this.$root.$on('modal:show', (modal, data = {}) => {
+      this.currentModal = modal
+      this.modalData = data
+      this.$nextTick(() => {
+        this.$root.$emit('bv::show::modal', 'root-modal')
+      })
+    })
+    this.$root.$on('modal:hide', () => {
+      this.$root.$emit('bv::hide::modal', 'root-modal')
+    })
+    this.$root.$on('bv::hide::modal', () => {
+      setTimeout(() => (this.currentModal = null), 300)
+    })
+  },
 }
 </script>
 
