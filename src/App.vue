@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld/>
+      <keep-alive :include="cachedViews" :max="20">
+        <router-view :key="$route.fullPath" />
+      </keep-alive>
     <component :is="currentModal" :data="modalData"/>
   </div>
 </template>
@@ -18,6 +20,7 @@ export default {
     return {
       currentModal: null,
       modalData: {},
+      cachedViews: ['HelloWorld']
     }
   },
   mounted() {
