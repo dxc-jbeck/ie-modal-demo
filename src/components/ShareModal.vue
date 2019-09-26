@@ -1,6 +1,7 @@
 <template>
   <Modal>
-    <b-form-group >
+    <b-form-group>
+      <label>Public: </label>
       <b-form-checkbox v-model="isPublic" switch>
       </b-form-checkbox>
     </b-form-group>
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Modal from './Modal'
 export default {
   name: 'ShareModal',

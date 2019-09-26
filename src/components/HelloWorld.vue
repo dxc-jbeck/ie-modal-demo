@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+    <div>
+      {{ playlist.isPublic ? 'public' : 'private' }}
+    </div>
       <b-button @click="showModal">
         Click me
       </b-button>
@@ -8,8 +11,12 @@
 
 <script>
 import ShareModal from './ShareModal'
+import { mapState } from 'vuex'
 export default {
   name: 'HelloWorld',
+    computed: {
+    ...mapState('playlist', ['playlist'])
+  },
   methods: {
     showModal() {
         this.$root.$emit('modal:show', ShareModal)
