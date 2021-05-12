@@ -16,7 +16,7 @@
     "debug": "^4.1.1",
     "intersection-observer": "^0.7.0",
     "localforage": "^1.7.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mobile-device-detect": "^0.2.3",
     "moment": "^2.24.0",
     "pdf.js-viewer": "^0.2.8",
