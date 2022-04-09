@@ -18,7 +18,7 @@
     "localforage": "^1.7.3",
     "lodash": "^4.17.11",
     "mobile-device-detect": "^0.2.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "pdf.js-viewer": "^0.2.8",
     "pdfjs-dist": "^2.1.266",
     "regenerator-runtime": "^0.13.3",
